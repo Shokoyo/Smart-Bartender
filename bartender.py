@@ -67,16 +67,16 @@ class Bartender(MenuDelegate):
 		# self.led.normal_display()
 		# time.sleep(0.5)
 
+		# load the pump configuration from file
+		self.pump_configuration = Bartender.readPumpConfiguration()
+		for pump in self.pump_configuration.keys():
+			GPIO.setup(self.pump_configuration[pump]["pin"], GPIO.OUT, initial=GPIO.HIGH)
+
 		# LCD setup
 		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS,numbering_mode=GPIO.BCM)
 		self.lcd.cursor_mode = 'hide'
 		self.lcd.clear()
 		self.lcd.write_string('Hallo!')
-
-		# load the pump configuration from file
-		self.pump_configuration = Bartender.readPumpConfiguration()
-		for pump in self.pump_configuration.keys():
-			GPIO.setup(self.pump_configuration[pump]["pin"], GPIO.OUT, initial=GPIO.HIGH)
 
 		# # setup pixels:
 		# self.numpixels = NUMBER_NEOPIXELS # Number of LEDs in strip
@@ -94,7 +94,6 @@ class Bartender(MenuDelegate):
 		# self.strip.show()
 
 		print "Done initializing"
-		self.clean()
 
 	@staticmethod
 	def readPumpConfiguration():
@@ -353,6 +352,7 @@ class Bartender(MenuDelegate):
 	def run(self):
 		self.startInterrupts()
 		# main loop
+		self.clean()
 		try:
 			while True:
 				time.sleep(0.1)
