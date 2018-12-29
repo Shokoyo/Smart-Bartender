@@ -30,9 +30,9 @@ RIGHT_PIN_BOUNCE = 2000
 # NEOPIXEL_BRIGHTNESS = 64
 
 LCD_DATA_PINS = [19,16,26,20]
-LCD_PIN_E = 12
-LCD_PIN_RS = 21
-LCD_PIN_RW = 18
+LCD_PIN_E = 9
+LCD_PIN_RS = 6
+LCD_PIN_RW = 15
 
 FLOW_RATE = 60.0/100.0
 
@@ -352,7 +352,7 @@ class Bartender(MenuDelegate):
 	def run(self):
 		self.startInterrupts()
 		# main loop
-		self.clean()
+		# self.clean()
 		try:
 			while True:
 				time.sleep(0.1)
