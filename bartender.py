@@ -347,7 +347,7 @@ class Bartender(MenuDelegate):
 	def updateProgressBar(self, percent, x=15, y=15):
 		width = (self.screen_width * percent) // 100
 		for w in range(0, width):
-			self.lcd.cursor_pos = (w, y)
+			self.lcd.cursor_pos = (y, w)
 			self.lcd.write_string("".join(chr(255)))
 
 	def run(self):
