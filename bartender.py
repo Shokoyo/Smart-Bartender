@@ -69,7 +69,7 @@ class Bartender(MenuDelegate):
 
 		# LCD setup
 		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS,numbering_mode=GPIO.BCM)
-		self.lcd.cursor_mode = CursorMode.hide
+		self.lcd.cursor_mode = 'hide'
 
 		# load the pump configuration from file
 		self.pump_configuration = Bartender.readPumpConfiguration()
