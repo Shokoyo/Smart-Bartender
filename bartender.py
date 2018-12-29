@@ -29,10 +29,10 @@ RIGHT_PIN_BOUNCE = 2000
 # NEOPIXEL_CLOCK_PIN = 6
 # NEOPIXEL_BRIGHTNESS = 64
 
-LCD_DATA_PINS = [21,22,23,24]
-LCD_PIN_E = 18
-LCD_PIN_RS = 26
-LCD_PIN_RW = 12
+LCD_DATA_PINS = [19,16,26,20]
+LCD_PIN_E = 12
+LCD_PIN_RS = 21
+LCD_PIN_RW = 18
 
 FLOW_RATE = 60.0/100.0
 
@@ -68,7 +68,7 @@ class Bartender(MenuDelegate):
 		# time.sleep(0.5)
 
 		# LCD setup
-		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS,numbering_mode=GPIO.BOARD)
+		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS,numbering_mode=GPIO.BCM)
 		self.lcd.cursor_mode = CursorMode.hide
 
 		# load the pump configuration from file
