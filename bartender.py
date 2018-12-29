@@ -48,8 +48,8 @@ class Bartender(MenuDelegate):
 		self.btn2Pin = RIGHT_BTN_PIN
 
 	 	# configure interrups for buttons
-	 	GPIO.setup(self.btn1Pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-		GPIO.setup(self.btn2Pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	 	# GPIO.setup(self.btn1Pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+		# GPIO.setup(self.btn2Pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 		# configure screen
 		# spi_bus = 0
@@ -70,7 +70,7 @@ class Bartender(MenuDelegate):
 		# load the pump configuration from file
 		self.pump_configuration = Bartender.readPumpConfiguration()
 		for pump in self.pump_configuration.keys():
-			GPIO.setup(self.pump_configuration[pump]["pin"], GPIO.OUT, initial=GPIO.HIGH)
+			# GPIO.setup(self.pump_configuration[pump]["pin"], GPIO.OUT, initial=GPIO.HIGH)
 
 		# LCD setup
 		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS,numbering_mode=GPIO.BCM)
