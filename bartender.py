@@ -5,7 +5,7 @@ import json
 import threading
 import traceback
 
-from RPLCD import CharLCD
+from RPLCD.gpio import CharLCD
 from dotstar import Adafruit_DotStar
 from menu import MenuItem, Menu, Back, MenuContext, MenuDelegate
 from drinks import drink_list, drink_options
@@ -68,7 +68,7 @@ class Bartender(MenuDelegate):
 		# time.sleep(0.5)
 
 		# LCD setup
-		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS)
+		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_rw=LCD_PIN_RW, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS,numbering_mode=GPIO.BOARD)
 		self.lcd.cursor_mode = CursorMode.hide
 
 		# load the pump configuration from file
