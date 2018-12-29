@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import time
 import RPi.GPIO as GPIO
-
+GPIO.setMode(GPIO.BCM)
 # Zuordnung der GPIO Pins (ggf. anpassen)
 LCD_RS = 6
 LCD_E  = 9
