@@ -19,8 +19,8 @@ drink_list = [
 			"rum": 15,
 			"vodka": 15,
 			"tequila": 15,
-			"coke": 100,
-			"oj": 30
+			"trsec": 15,
+			"coke": 100
 		}
 	}, {
 		"name": "Screwdriver",
@@ -57,5 +57,6 @@ drink_options = [
 	{"name": "Tonic Water", "value": "tonic"},
 	{"name": "Coke", "value": "coke"},
 	{"name": "Orange Juice", "value": "oj"},
-	{"name": "Margarita Mix", "value": "mmix"}
+	{"name": "Margarita Mix", "value": "mmix"},
+	{"name": "Triple Sec", "value": "trsec"}
 ]
