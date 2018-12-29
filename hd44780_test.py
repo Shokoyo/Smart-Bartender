@@ -3,8 +3,8 @@ import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 # Zuordnung der GPIO Pins (ggf. anpassen)
-LCD_RS = 6
-LCD_E  = 9
+LCD_RS = 27
+LCD_E  = 17
 LCD_DATA4 = 19
 LCD_DATA5 = 16
 LCD_DATA6 = 26
