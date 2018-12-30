@@ -33,7 +33,7 @@ LCD_DATA_PINS = [19,6,26,20]
 LCD_PIN_E = 12
 LCD_PIN_RS = 21
 
-FLOW_RATE = 60.0/100.0
+FLOW_RATE = 40.0/100.0
 
 class Bartender(MenuDelegate):
 	def __init__(self):
@@ -74,8 +74,6 @@ class Bartender(MenuDelegate):
 		# LCD setup
 		self.lcd = CharLCD(cols=16, rows=2, pin_rs=LCD_PIN_RS, pin_e=LCD_PIN_E, pins_data=LCD_DATA_PINS, numbering_mode=GPIO.BCM)
 		self.lcd.cursor_mode = 'hide'
-		self.lcd.clear()
-		self.lcd.write_string('Hallo!')
 
 		# # setup pixels:
 		# self.numpixels = NUMBER_NEOPIXELS # Number of LEDs in strip
@@ -204,7 +202,7 @@ class Bartender(MenuDelegate):
 		pumpThreads = []
 
 		# cancel any button presses while the drink is being made
-		self.stopInterrupts()
+		# self.stopInterrupts()
 		self.running = True
 
 		for pump in self.pump_configuration.keys():
@@ -229,12 +227,13 @@ class Bartender(MenuDelegate):
 		time.sleep(2);
 
 		# reenable interrupts
-		self.startInterrupts()
+		# self.startInterrupts()
 		self.running = False
 
 	def displayMenuItem(self, menuItem):
 		print menuItem.name
 		self.lcd.clear()
+		self.lcd.cursor_mode = 'hide'
 		self.lcd.write_string(menuItem.name)
 
 	# def cycleLights(self):
@@ -287,7 +286,7 @@ class Bartender(MenuDelegate):
 
 	def makeDrink(self, drink, ingredients):
 		# cancel any button presses while the drink is being made
-		self.stopInterrupts()
+		# self.stopInterrupts()
 		self.running = True
 
 		# launch a thread to control lighting
@@ -331,7 +330,7 @@ class Bartender(MenuDelegate):
 		time.sleep(2);
 
 		# reenable interrupts
-		self.startInterrupts()
+		# self.startInterrupts()
 		self.running = False
 
 	def left_btn(self, ctx):
@@ -344,9 +343,8 @@ class Bartender(MenuDelegate):
 
 	def updateProgressBar(self, percent, x=15, y=15):
 		width = (self.screen_width * percent) // 100
-		for w in range(0, width):
-			self.lcd.cursor_pos = (y, w)
-			self.lcd.write_string("".join(chr(255)))
+		self.lcd.cursor_pos = (y, width)
+		self.lcd.write_string("".join(chr(255)))
 
 	def run(self):
 		self.startInterrupts()

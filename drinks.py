@@ -46,6 +46,11 @@ drink_list = [
 			"tequila": 50,
 			"oj": 150
 		}
+	}, {
+		"name": "Coke",
+		"ingredients": {
+			"coke": 200
+		}
 	}
 ]
 
